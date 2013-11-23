@@ -13,6 +13,10 @@ My other requirement was that I wanted to download files from my VPS to my local
 ## Setup
 
     git clone https://github.com/silas/https-auth-proxy-downloader.git
+    
+    npm install
+    
+build some secure certificates:
 
     openssl genrsa -des3 -passsout pass:x -out server.pass.key 2048
     openssl rsa -passin pass:x -in server.pass.key -out server.key
