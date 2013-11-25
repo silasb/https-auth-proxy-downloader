@@ -1,15 +1,26 @@
 {
   "name": "https-auth-proxy-downloader",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Downloads a file via a secure link.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type:": "git",
+    "url": "https://github.com/silasb/https-auth-proxy-downloader.git"
   },
   "author": "Silas Baronda <silas.baronda@gmail.com>",
   "license": "BSD-2-Clause",
-  "devDependencies": {
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "dependencies": {
     "request": "~2.27.0",
     "simple-auth": "0.0.1"
+  },
+
+  "main": "./lib/https-auth-proxy-downloader",
+  "bin": {
+    "https-auth-proxy-downloader": "./bin/https-auth-proxy-downloader"
   }
+
 }
