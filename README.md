@@ -18,12 +18,12 @@ My other requirement was that I wanted to download files from my VPS to my local
     
 build some secure certificates:
 
-    openssl genrsa -des3 -passsout pass:x -out server.pass.key 2048
+    openssl genrsa -des3 -passout pass:x -out server.pass.key 2048
     openssl rsa -passin pass:x -in server.pass.key -out server.key
 
 insert some data, not all data needs to be answered
 
-    openssl reg -new -key server.key -out server.csr
+    openssl req -new -key server.key -out server.csr
 
     openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 
