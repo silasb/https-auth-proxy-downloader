@@ -31,7 +31,9 @@ keys have been generated, now start the server:
 
     node index.js
 
-now you can connect with the client and download the file.
+now you can connect with the client and download a file.
+
+You can adjust the server port, username, and password inside the `index.js` file.
 
 Using proxy:
 
