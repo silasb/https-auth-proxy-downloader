@@ -1,6 +1,19 @@
 #!/usr/bin/env node
 
-var path = require('path'),
-  httpsAuthProxyDownloader = require('../lib/https-auth-proxy-downloader');
+var path = require('path')
+  , fs = require('fs')
+  , httpsAuthProxyDownloader = require('../lib/https-auth-proxy-downloader');
+
+var options = {
+  https: {
+    key: fs.readFileSync('server.key'),
+    cert: fs.readFileSync('server.crt')
+  },
+  port: 8001,
+  username: 'silasb',
+  password: '1337'
+};
+
+httpsAuthProxyDownloader.start(options)
 
 console.log("Server started")
