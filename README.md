@@ -12,9 +12,13 @@ My other requirement was that I wanted to download files from my VPS to my local
 
 ## Setup
 
-    git clone https://github.com/silas/https-auth-proxy-downloader.git
-    
-    npm install
+    npm install -g https-auth-proxy-downloader
+
+to start the server:
+
+    https-auth-proxy-downloader --http --http-auth silasb:1337
+
+### Configure HTTPs
     
 build some secure certificates:
 
@@ -29,12 +33,12 @@ insert some data, not all data needs to be answered
 
 keys have been generated, now start the server:
 
-    node index.js
+    https-auth-proxy-downloader --http-auth silasb:1337
 
 now you can connect with the client and download a file.
 
-You can adjust the server port, username, and password inside the `index.js` file.
+Using proxy when started using:
 
-Using proxy:
+    https-auth-proxy-downloader --http-auth silasb:1337
 
     curl -k -u silasb:1337 -O http://duh:8001/domain/file_to_download
