@@ -1,6 +1,6 @@
 {
   "name": "https-auth-proxy-downloader",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Downloads a file via a secure link.",
   "repository": {
     "type:": "git",
@@ -15,7 +15,9 @@
 
   "dependencies": {
     "request": "~2.27.0",
-    "simple-auth": "0.0.1"
+    "simple-auth": "0.0.1",
+    "optimist": "0.3.x"
+
   },
 
   "main": "./lib/https-auth-proxy-downloader",

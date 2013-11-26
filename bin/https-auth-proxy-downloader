@@ -2,18 +2,56 @@
 
 var path = require('path')
   , fs = require('fs')
+  , util = require('util')
+  , argv = require('optimist').argv
   , httpsAuthProxyDownloader = require('../lib/https-auth-proxy-downloader');
 
-var options = {
-  https: {
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.crt')
-  },
-  port: 8001,
-  username: 'silasb',
-  password: '1337'
-};
 
-httpsAuthProxyDownloader.start(options)
+var help = [
+  "usage: https-auth-proxy-downloader [options] ",
+  "",
+  "options:",
+  "   --port      PORT          Port that the proxy server should run on",
+  "   --http                    Allow the proxy server run via an insecure connection",
+  "   --http-auth USER:PASSWORD Username for HTTP Auth",
+  "   --config    FILE          Configuration file",
+  "   -h, --help                You're reading it"
+].join('\n');
 
-console.log("Server started")
+if (argv.h || argv.help) {
+  return util.puts(help)
+}
+
+var config = {},
+  port = argv.port || 8080,
+  http = argv.http || undefined;
+  http_auth = argv['http-auth'] || undefined;
+
+if (argv.config) {
+  // config file
+}
+
+config.port = port;
+config.http = http;
+
+if (config.http === undefined) {
+  try {
+    config.https = {};
+    config.https.key = fs.readFileSync('server.key');
+    config.https.cert = fs.readFileSync('server.crt');
+  } catch (ex) {
+    util.puts('Error loading HTTPs keys: ' + ex);
+    process.exit(1);
+  }
+}
+
+if (http_auth) {
+  var auth = http_auth.split(':');
+
+  config.username = auth[0];
+  config.password = auth[1];
+}
+
+httpsAuthProxyDownloader.start(config);
+
+console.log("Listening on: " + config.port);
