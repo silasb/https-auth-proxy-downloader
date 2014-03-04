@@ -4,7 +4,7 @@ A simple proxy server that allows me to download a file through my VPS.
 
 ## Why
 
-Downloading torrents from my seedbox was very slow, but downloading to my VPS then downloading to my local box was much much faster.
+Downloading torrents from my seedbox is very slow, but downloading to my VPS then downloading to my local box was much much faster.
 
 Typical download speed from my seedbox was aour 100 Kb/s whereas downloading through this proxy resulted in downloading at 2 Mb/s.
 
