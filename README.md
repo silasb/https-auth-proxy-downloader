@@ -6,15 +6,15 @@ A simple proxy server that allows me to download a file through my VPS.
 
 Downloading torrents from my seedbox is very slow, but downloading to my VPS then downloading to my local box was much much faster.
 
-Typical download speed from my seedbox was aour 100 Kb/s whereas downloading through this proxy resulted in downloading at 2 Mb/s.
+Typical download speed from my seedbox was about 100 Kb/s whereas downloading through this proxy resulted in downloading at 2 Mb/s.
 
-My other requirement was that I wanted to download files from my VPS to my local computer via HTTPS and didn't want other users to connect and user this without a password so HTTP Auth is also included.
+My other requirement was that I wanted to download files from my VPS to my local computer via HTTPS and didn't want other users to connect and use this without a password so HTTP Auth is also included.
 
 ## Setup
 
     npm install -g https-auth-proxy-downloader
 
-to start the server:
+to start the server (HTTP with HTTP authentication):
 
     https-auth-proxy-downloader --http --http-auth silasb:1337
 
